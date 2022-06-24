@@ -1,0 +1,185 @@
+<h2 mat-dialog-title>INFORMACION AFILIADO ( {{nameUser}} ) ESTADO : {{responseDataUserInfo.estado}}</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="textFormUser">INFORMACION EMPLEADO</h4>
+                    <!-- <p class="card-category">Complete el formulario para la creacion de un aspirante</p> -->
+                </div>
+                <div class="card-body">
+
+                    <!-- {{responseDataUserInfo | json}} -->
+
+                    <div style="width: 100%;" class="example-action-buttons">
+                        <button mat-button (click)="accordion.openAll()">EXPANDIR</button>
+                        <button mat-button (click)="accordion.closeAll()">CONTRAER</button>
+                    </div>
+                    <mat-accordion class="example-headers-align" multi>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <!-- <mat-panel-title>
+                                    Personal data
+                                </mat-panel-title> -->
+                                <mat-panel-description>
+                                    INFORMACION PERSONAL
+                                    <mat-icon>account_circle</mat-icon>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <br>
+                            <span class="title">DATOS BASICOS</span>
+                            <hr>
+                            <div class="row">
+                                <div class="col-4 form-group">
+                                    <mat-label>NOMBRE : {{responseDataUserInfo.nombre}} {{responseDataUserInfo.apellido}}</mat-label>
+                                </div>
+                                <div class="col-4 form-group">
+                                    <mat-label>GENERO : {{responseDataUserInfo.genero}}</mat-label>
+                                </div>
+                                <div class="col-4 form-group">
+                                    <mat-label>FECHA NACIMIENTO : {{responseDataUserInfo.fecha_nacimiento}}</mat-label>
+                                </div>
+                            </div>
+                            <!-- <input matInput> -->
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <mat-label>NUMERO DOCUMENTO : {{responseDataUserInfo.cedula}}</mat-label>
+                                </div>
+                                <div class="col-6 form-group">
+                                    <mat-label>DIRECCION : {{responseDataUserInfo.direccion}}</mat-label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <mat-label>CELULAR : {{responseDataUserInfo.celular}}</mat-label>
+                                </div>
+                                <div class="col-6 form-group">
+                                    <mat-label>TELEFONO : {{responseDataUserInfo.telefono}}</mat-label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <mat-label>CARGO : {{responseDataUserInfo.cargo}}</mat-label>
+                                </div>
+                                <div class="col-6 form-group">
+                                    <mat-label>SALARIO : {{responseDataUserInfo.salario}}</mat-label>
+                                </div>
+                            </div>
+                            <br>
+                            <span class="title">DATOS DE NOTIFICACION</span>
+                            <hr>
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <mat-label>NOMBRE CONTACTO EMERGENCIA : {{responseDataUserInfo.nombre_emergencia}}</mat-label>
+                                </div>
+                                <div class="col-6 form-group">
+                                    <mat-label>CELULAR CONTACTO EMERGENCIA : {{responseDataUserInfo.celular_emergencia}}</mat-label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <mat-label>CORREO : {{responseDataUserInfo.correo}}</mat-label>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <!-- <mat-panel-title>
+                                    Day of the trip
+                                </mat-panel-title> -->
+                                <mat-panel-description>
+                                    INFORMACION DE AFILIACION
+                                    <mat-icon>assignment</mat-icon>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <br>
+                            <span class="title">DATOS DE AFILIACION</span>
+                            <hr>
+                            <div class="row">
+                                <div class="col-4 form-group">
+                                    <mat-label>CUROS DE ALTURAS : {{responseDataUserInfo.curso_alturas}}</mat-label>
+                                </div>
+                                <div class="col-4 form-group">
+                                    <mat-label>EXAMEN DE INGRESO : {{responseDataUserInfo.examen_ingreso}}</mat-label>
+                                </div>
+                                <div class="col-4 form-group">
+                                    <mat-label>RUT : {{responseDataUserInfo.rut}}</mat-label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 form-group">
+                                    <mat-label>FONDO DE PENSIONES : {{responseDataUserInfo.curso_alturas}}</mat-label>
+                                </div>
+                                <div class="col-4 form-group">
+                                    <mat-label>EPS : {{responseDataUserInfo.eps}}</mat-label>
+                                </div>
+                                <div class="col-4 form-group">
+                                    <mat-label>ARL : {{responseDataUserInfo.arl}}</mat-label>
+                                </div>
+                            </div>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <!-- <mat-panel-title>
+                                    Day of the trip
+                                </mat-panel-title> -->
+                                <mat-panel-description>
+                                    DOCUMENTOS AFILIAZION
+                                    <mat-icon>open_in_browser</mat-icon>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <br>
+                            <span class="title">DOCUMENTOS ADJUNTOS</span>
+                            <hr>
+                            <br>
+                            <div class="row">
+                                <div class="divDocument col-12">
+                                    <mat-label>DOC ARL </mat-label>
+                                    <input type="file" (change)="fileSelected($event)">
+                                </div>
+                                <div class="divDocument col-12">
+                                    <mat-label>DOC EPS </mat-label>
+                                    <input type="file" (change)="fileSelected($event)">
+                                </div>
+                                <div class="divDocument col-12">
+                                    <mat-label>DOC RUT</mat-label>
+                                    <input type="file" (change)="fileSelected($event)">
+                                </div>
+                                <div class="divDocument col-12">
+                                    <mat-label>DOC FONDO PENSIONES </mat-label>
+                                    <input type="file" (change)="fileSelected($event)">
+                                </div>
+                                <div class="divDocument col-12">
+                                    <mat-label>DOC CURSO DE ALTURAS </mat-label>
+                                    <input type="file" (change)="fileSelected($event)">
+                                </div>
+
+                                <div class="divDocument col-12">
+                                    <mat-label>DOC EXAMEN DE INGRESO </mat-label>
+                                    <input type="file" (change)="fileSelected($event)">
+                                </div>
+
+
+                            </div>
+
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                    <div class="btnMembership">
+                        <button *ngIf="responseDataUserInfo.estado === 'pendiente_examen_medico'" (click)="changeState()" mat-raised-button color="warn">AFILIAR EMPLEADO</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--     
+        <div>
+            <img [src]="imageData" />
+        </div> -->
+
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true">CERRAR</button>
+    <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+</mat-dialog-actions>
